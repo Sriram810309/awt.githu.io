@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Request</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .logo {
+            max-width: 100px;
+        }
+        .header-bg {
+            background-color: #1e293b;
+            padding: 15px;
+        }
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #9e1b23;
+        }
+        .header-subtitle {
+            font-size: 14px;
+            color: #2c87a0;
+        }
+        .contact-info {
+            font-size: 12px;
+            color: #fff;
+        }
+        .form-bg {
+            background-color: #2d3748;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .footer-bg {
+            background-color: #44546e;
+        }
+        .submit-btn {
+            background-color: #2563eb;
+        }
+        .faculty-card {
+            background-color: #2d3748;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative; /* Added for positioning */
+            z-index: 10; /* Ensuring it's on top of the overlay */
+        }
+        .status {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 5; /* Below the faculty card */
+            visibility: hidden; /* Hidden by default */
+        }
+        .overlay-content {
+            background-color: #2d3748;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .overlay.active {
+            visibility: visible; /* Show overlay */
+        }
+    </style>
+</head>
+<body class="bg-zinc-900 text-white">
+    <!-- Header Section -->
+    <header class="header-bg py-4">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-4">
+            <img src="vishnu.png" alt="College Logo" class="logo fade-in h-20" />
+            <div class="fade-in delay-1 pl-20">
+                <h1 class="header-title fade-in-up">VISHNU INSTITUTE OF TECHNOLOGY</h1>
+                <p class="header-subtitle fade-in-up delay-2">(Approved by AICTE, New Delhi | Affiliated to JNTUK)</p>
+                <p class="contact-info fade-in-up delay-3">Vishnupur, Bhimavaram, West Godavari Dist. - 534 202 &nbsp; Ph: 08816 251333, 250819 &nbsp; Fax: 08816 250344</p>
+                <p class="contact-info fade-in-up delay-4">e-mail: info@vishnuit.in &nbsp; website: www.vishnuit.in</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Faculty Request Form Section -->
+    <div class="container mx-auto mt-10">
+        <div class="form-bg max-w-xl mx-auto p-8 text-center">
+            <h2 class="text-2xl font-bold mb-6 text-white">Faculty Request</h2>
+
+            <form id="faculty-request-form" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="student-name" class="block text-sm font-medium text-white mb-2">Student Name</label>
+                        <input type="text" id="student-name" required placeholder="Enter your name" class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600" >
+                    </div>
+
+                    <div>
+                        <label for="registration-number" class="block text-sm font-medium text-white mb-2">Registration Number</label>
+                        <input type="text" id="registration-number" required placeholder="Enter your registration number" class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600" >
+                    </div>
+
+                    <div>
+                        <label for="year" class="block text-sm font-medium text-white mb-2">Year</label>
+                        <select id="year" required class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600">
+                            <option value="" disabled selected>Select your year</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="branch" class="block text-sm font-medium text-white mb-2">Branch</label>
+                        <select id="branch" required class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600">
+                            <option value="" disabled selected>Select your branch</option>
+                            <option value="IT">IT</option>
+                            <option value="CSE">CSE</option>
+                            <option value="AIML">AIML</option>
+                            <option value="AIDS">AIDS</option>
+                            <option value="CSBS">CSBS</option>
+                            <option value="EEE">EEE</option>
+                            <option value="ECE">ECE</option>
+                            <option value="CIVIL">CIVIL</option>
+                            <option value="MECH">MECH</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="section" class="block text-sm font-medium text-white mb-2">Section</label>
+                        <select id="section" required class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600">
+                            <option value="" disabled selected>Select your section</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                            <option value="D">D</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="description" class="block text-sm font-medium text-white mb-2">Description</label>
+                        <textarea id="description" rows="3" required placeholder="Enter description of request" class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600"></textarea>
+                    </div>
+                </div>
+
+                <button type="button" onclick="submitRequest()" class="submit-btn text-white py-3 px-6 w-full rounded-lg mt-4 hover:bg-blue-700 transition duration-200">
+                    Submit Request
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Overlay for Faculty Info -->
+    <div id="faculty-info-overlay" class="overlay">
+        <div class="overlay-content">
+            <div class="faculty-card">
+                <img id="faculty-image" class="mx-auto rounded-full w-32 h-32 mb-4" alt="Faculty Image" />
+                <h3 id="faculty-name" class="text-xl font-bold"></h3>
+                <p id="faculty-qualification"></p>
+                <p id="faculty-phone"></p>
+                <p id="faculty-status" class="status"></p>
+                <button id="request-hod-btn" class="submit-btn text-white py-2 px-4 rounded-lg mt-4 hover:bg-blue-700 transition duration-200">
+                    Request HOD Now
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer-bg text-center p-5 mt-10">
+        <p class="text-sm text-gray-400">&copy; 2024 Vishnu Institute of Technology. All rights reserved.</p>
+        <p class="text-sm text-gray-400">Contact: info@vit.edu | Phone: +91 123 456 7890</p>
+    </footer>
+
+    <script>
+        // Simulated faculty details
+        let facultyDetails = [];
+
+        // Fetch faculty details using Random User API
+        async function fetchFacultyDetails() {
+            const response = await fetch('https://randomuser.me/api/?results=3&gender=male');
+            const data = await response.json();
+            facultyDetails = data.results.map(faculty => ({
+                name: `${faculty.name.title} ${faculty.name.first} ${faculty.name.last}`,
+                qualification: 'PhD in Computer Science', // Example qualification, you can modify this
+                phone: faculty.phone,
+                image: faculty.picture.large
+            }));
+        }
+
+        fetchFacultyDetails();
+
+        // Simulate request submission
+        function submitRequest() {
+            // Randomly pick a faculty
+            const faculty = facultyDetails[Math.floor(Math.random() * facultyDetails.length)];
+
+            // Simulate request status (Accepted or Not Accepted)
+            const requestAccepted = Math.random() < 0.7; // 70% chance of being accepted
+
+            // Update faculty info display
+            document.getElementById("faculty-image").src = faculty.image;
+            document.getElementById("faculty-name").innerText = faculty.name;
+            document.getElementById("faculty-qualification").innerText = faculty.qualification;
+            document.getElementById("faculty-phone").innerText = "Phone: " + faculty.phone;
+
+            // Update the status with green for Accepted, red for Not Accepted
+            const statusElement = document.getElementById("faculty-status");
+            if (requestAccepted) {
+                statusElement.innerText = "Request Accepted";
+                statusElement.style.color = "green";
+            } else {
+                statusElement.innerText = "Request Not Accepted";
+                statusElement.style.color = "red";
+            }
+
+            // Show the overlay
+            document.getElementById("faculty-info-overlay").classList.add("active");
+        }
+
+        // Close the overlay when the HOD request button is clicked
+        document.getElementById("request-hod-btn").addEventListener("click", function() {
+            // You can implement additional logic here if needed
+            document.getElementById("faculty-info-overlay").classList.remove("active");
+            alert("HOD has been requested.");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester Fee Request</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .logo {
+            max-width: 100px;
+            /* Adjusted the logo size for balance */
+        }
+
+        .carousel-item {
+            display: none;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-item.active {
+            display: block;
+        }
+
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            /* Hover effect */
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            /* Lift effect */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            /* Enhanced shadow */
+        }
+
+        .header-bg {
+            background-color: #1e293b;
+            /* Dark blue-gray background to match dark theme */
+            padding: 15px;
+        }
+
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #9e1b23;
+            /* Dark red color matching the title in the image */
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+            color: #2c87a0;
+            /* Blue color for the subtitle */
+        }
+
+        .contact-info {
+            font-size: 12px;
+            color: #fff;
+            /* White text for contact information */
+        }
+
+        /* Dark theme card adjustment */
+        .card-dark {
+            background-color: #2d3748;
+            /* Dark gray background for cards */
+            color: white;
+        }
+
+        /* Adjust text in buttons */
+        .card-dark button {
+            background-color: #2563eb;
+            /* Blue button */
+        }
+
+        /* Dark background for carousel section */
+        .carousel-bg {
+            background-color: #1e293b;
+            /* Dark background for the carousel section */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Dark background for footer */
+        .footer-bg {
+            background-color: #44546e;
+            /* Dark background for the footer */
+        }
+
+        /* New styles for the registration section */
+        .register-bg {
+            padding: 20px;
+            border-radius: 10px;
+            /* Removed background color */
+            border: 1px solid #2563eb;
+            /* Optional border for visibility */
+        }
+
+        .status-buttons {
+            display: none;
+            /* Hidden by default */
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-900 text-white">
+    <!-- Header Section -->
+    <header class="header-bg py-4">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between text-center md:text-left gap-4">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.IRa65GK2gRh9F8n2qspZ4wAAAA&pid=Api&P=0&h=180" alt="College Logo" class="logo fade-in h-20" />
+            <div class="fade-in delay-1 pl-20">
+                <h1 class="header-title fade-in-up">VISHNU INSTITUTE OF TECHNOLOGY</h1>
+                <p class="header-subtitle fade-in-up delay-2">(Approved by AICTE, New Delhi | Affiliated to JNTUK)</p>
+                <p class="contact-info fade-in-up delay-3">Vishnupur, Bhimavaram, West Godavari Dist. - 534 202 &nbsp; Ph: 08816 251333, 250819 &nbsp; Fax: 08816 250344</p>
+                <p class="contact-info fade-in-up delay-4">e-mail: info@vishnuit.in &nbsp; website: www.vishnuit.in</p>
+            </div>
+            <div class="flex-shrink-0 mt-4 md:mt-0">
+                <button onclick="window.location.href='login.html'" class="bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition duration-200">
+                    Login/Register
+                </button>
+            </div>
+        </div>
+    </header>
+    
+
+    <!-- Carousel Section with Dark Background -->
+    <div class="container mx-auto mt-5 carousel-bg">
+        <div id="carouselExample" class="relative">
+            <div class="carousel-item active">
+                <img src="vit.png" alt="Image 1" class="w-full rounded-lg shadow-lg" />
+            </div>
+            <div class="carousel-item">
+                <img src="vitb.png" alt="Image 2" class="w-full rounded-lg shadow-lg" />
+            </div>
+            <div class="carousel-item">
+                <img src="vitlibrary.png" alt="Image 3" class="w-full rounded-lg shadow-lg" />
+            </div>
+            <button onclick="prevSlide()" class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full">❮</button>
+            <button onclick="nextSlide()" class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-blue-600 text-white p-2 rounded-full">❯</button>
+        </div>
+    </div>
+
+    <!-- Images Section with 2 Cards, Decreased Size and Text -->
+    <div class="container mx-auto mt-10 grid grid-cols-1 md:grid-cols-2 gap-5">
+        <!-- Card 1 -->
+        <div class="card card-dark p-3 rounded-lg shadow-md transition-transform transform hover:scale-105" style="max-width: 300px; margin: auto;">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.ETDyMIWdUeJv5qJeHGLctgHaHa&pid=Api&P=0&h=180" alt="Regular Semester Fee" class="w-full h-48 rounded-lg mb-2 object-cover" />
+            <p class="text-center font-bold text-white">Regular Semester Fee</p>
+            <button onclick="window.location.href='faculty.html'" class="mt-2 bg-blue-600 text-white p-2 w-full rounded hover:bg-blue-700 transition duration-200">
+                Request Now
+            </button>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card card-dark p-3 rounded-lg shadow-md transition-transform transform hover:scale-105" style="width: 300px; margin: auto;">
+            <img src="sem1.jpg" alt="Minor Semester Fee" class="w-full h-48 rounded-lg mb-2 object-cover" />
+            <p class="text-center font-bold text-white">Minor Semester Fee</p>
+            <button onclick="window.location.href='faculty.html'" class="mt-2 bg-blue-600 text-white p-2 w-full rounded hover:bg-blue-700 transition duration-200">
+                Request Now
+            </button>
+        </div>
+    </div>
+
+    <!-- Registration Status Section -->
+    <div class="container mx-auto mt-10">
+        <h2 class="text-center text-xl font-bold mb-4">Check Fee Payment Status</h2>
+        <div class="flex justify-center items-center">
+            <input type="text" id="registerNumber" placeholder="Register Number" class="border border-gray-300 rounded-l-lg p-2 w-1/3 bg-white-800 text-black">
+            <a href="hod.html"><button onclick="checkStatus()" class="bg-yellow-600 text-white p-2 rounded-r-lg hover:bg-yellow-700 transition duration-200">Check Status</button></a>
+        </div>
+        <div id="statusButtons" class="status-buttons mt-4 text-center">
+            <p id="statusMessage" class="text-white"></p>
+            <button id="payNowButton" class="bg-green-600 text-white p-2 rounded hover:bg-green-700 transition duration-200 mt-2" onclick="window.location.href='pay.html'" style="display: none;">Pay Now</button>
+        </div>
+    </div>
+
+    <!-- Footer Section with Dark Background -->
+    <footer class="footer-bg text-center p-5 mt-10">
+        <p class="text-sm text-gray-400">&copy; 2024 Vishnu Institute of Technology. All rights reserved.</p>
+        <p class="text-sm text-gray-400">Contact: info@vit.edu | Phone: +91 123 456 7890</p>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Automatically show the first slide and change slide every 5 seconds
+        showSlide(currentSlide);
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+
+        function checkStatus() {
+            const registerNumber = document.getElementById("registerNumber").value.trim();
+            const statusMessage = document.getElementById("statusMessage");
+            const payNowButton = document.getElementById("payNowButton");
+            const statusButtons = document.getElementById("statusButtons");
+
+            // Simulate checking status (you can replace this with actual logic)
+           
+                       // Simulate checking status (you can replace this with actual logic)
+           
+                       if (registerNumber === "") {
+                statusMessage.textContent = "Please enter your registration number.";
+                payNowButton.style.display = "none";
+                statusButtons.style.display = "block";
+                return;
+            }
+
+            // Simulated response for example purposes
+            // In a real application, you would replace this with an API call
+            if (registerNumber === "12345") { // Replace this condition with your actual logic
+                statusMessage.textContent = `Status: Accepted for Register Number: ${registerNumber}`;
+                payNowButton.style.display = "block"; // Show Pay Now button
+            } else {
+                statusMessage.textContent = `Status: Not Found for Register Number: ${registerNumber}`; // Message if not accepted
+                payNowButton.style.display = "none"; // Hide Pay Now button
+            }
+
+            statusButtons.style.display = "block"; // Show status message and buttons
+        }
+    </script>
+</body>
+
+</html>
+

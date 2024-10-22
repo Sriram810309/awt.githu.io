@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semester Fee Payment</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .logo {
+            max-width: 100px;
+        }
+        .header-bg {
+            background-color: #1e293b;
+            padding: 15px;
+        }
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #9e1b23;
+        }
+        .header-subtitle {
+            font-size: 14px;
+            color: #2c87a0;
+        }
+        .contact-info {
+            font-size: 12px;
+            color: #fff;
+        }
+        .form-bg {
+            background-color: #2d3748;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .footer-bg {
+            background-color: #44546e;
+        }
+        .submit-btn {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body class="bg-zinc-900 text-white">
+    <!-- Header Section -->
+    <header class="header-bg py-4">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-center text-center md:text-left gap-4">
+            <img src="vishnu.png" alt="College Logo" class="logo fade-in h-20" />
+            <div class="fade-in delay-1 pl-20">
+                <h1 class="header-title fade-in-up">VISHNU INSTITUTE OF TECHNOLOGY</h1>
+                <p class="header-subtitle fade-in-up delay-2">(Approved by AICTE, New Delhi | Affiliated to JNTUK)</p>
+                <p class="contact-info fade-in-up delay-3">Vishnupur, Bhimavaram, West Godavari Dist. - 534 202 &nbsp; Ph: 08816 251333, 250819 &nbsp; Fax: 08816 250344</p>
+                <p class="contact-info fade-in-up delay-4">e-mail: info@vishnuit.in &nbsp; website: www.vishnuit.in</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Fee Payment Section -->
+    <div class="container mx-auto mt-10">
+        <div class="form-bg max-w-md mx-auto p-8 text-center">
+            <h2 class="text-2xl font-bold mb-6 text-white">Pay Your Semester Fee</h2>
+
+            <!-- Form for Payment -->
+            <form action="payment_process.php" method="POST" class="space-y-4">
+                <div>
+                    <label for="student-id" class="block text-sm font-medium text-white mb-2">Student ID</label>
+                    <input type="text" id="student-id" name="student_id" required placeholder="Enter your Student ID" class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600">
+                </div>
+
+                <div>
+                    <label for="student-name" class="block text-sm font-medium text-white mb-2">Student Name</label>
+                    <input type="text" id="student-name" name="student_name" required placeholder="Enter your Name" class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600">
+                </div>
+
+                <div>
+                    <label for="fee-type" class="block text-sm font-medium text-white mb-2">Fee Type</label>
+                    <select id="fee-type" name="fee_type" class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600">
+                        <option value="regular">Regular Semester Fee</option>
+                        <option value="minor">Minor Semester Fee</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="amount" class="block text-sm font-medium text-white mb-2">Amount (INR)</label>
+                    <input type="number" id="amount" name="amount" required placeholder="Enter amount" class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600">
+                </div>
+
+                <div>
+                    <label for="email" class="block text-sm font-medium text-white mb-2">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your Email" class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600">
+                </div>
+
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-white mb-2">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="Enter your Phone Number" class="w-full p-3 rounded-lg bg-gray-700 text-white border border-gray-600">
+                </div>
+
+                <button type="submit" class="submit-btn text-white py-3 px-6 w-full rounded-lg mt-4 hover:bg-blue-700 transition duration-200">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer-bg text-center p-5 mt-10">
+        <p class="text-sm text-gray-400">&copy; 2024 Vishnu Institute of Technology. All rights reserved.</p>
+        <p class="text-sm text-gray-400">Contact: info@vit.edu | Phone: +91 123 456 7890</p>
+    </footer>
+</body>
+</html>
